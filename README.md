@@ -60,17 +60,18 @@ Airports need to manage complex baggage routing in real time. This system ensure
 ```mermaid
 sequenceDiagram
     autonumber
-    participant 🧑‍✈️ FlightController as <b>FlightController</b><br><img src="https://img.icons8.com/fluency/48/spring-logo.png" width="20"/> Spring Boot
-    participant 📤 KafkaProducer as <b>KafkaProducer</b><br><img src="https://img.icons8.com/ios-filled/50/kafka.png" width="20"/> Kafka
-    participant 📨 KafkaConsumer as <b>KafkaConsumer</b><br><img src="https://img.icons8.com/ios-filled/50/kafka.png" width="20"/> Kafka
-    participant 🛠️ BeltAssignmentService as <b>BeltAssignmentService</b><br><img src="https://img.icons8.com/fluency/48/spring-logo.png" width="20"/> Spring Boot
-    participant 🛄 BaggageBelt as <b>BaggageBelt</b><br><img src="https://cdn-icons-png.flaticon.com/512/919/919853.png" width="20"/> PostgreSQL
+    participant FC as FlightController (Spring Boot)
+    participant KP as KafkaProducer (Kafka)
+    participant KC as KafkaConsumer (Kafka)
+    participant BAS as BeltAssignmentService (Spring Boot)
+    participant BB as BaggageBelt (PostgreSQL)
 
-    🧑‍✈️ FlightController->>📤 KafkaProducer: Publish flight update
-    📤 KafkaProducer-->>KafkaTopic: Send <code>FlightUpdateMessage</code>
-    📨 KafkaConsumer-->>🛠️ BeltAssignmentService: On ARRIVAL → assignBeltToFlight()
-    📨 KafkaConsumer-->>🛠️ BeltAssignmentService: On DELAY → reassignBeltDueToDelay()
-    🛠️ BeltAssignmentService-->>🛄 BaggageBelt: Update belt status
+    FC->>KP: Publish flight update
+    KP-->>KC: Send FlightUpdateMessage
+    KC-->>BAS: On ARRIVAL → assignBeltToFlight()
+    KC-->>BAS: On DELAY → reassignBeltDueToDelay()
+    BAS-->>BB: Update belt status
+
 
 
 
