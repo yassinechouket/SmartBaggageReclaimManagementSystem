@@ -2,6 +2,11 @@
 
 An intelligent, event-driven baggage belt management system for airports, built with **Spring Boot**, **Apache Kafka**, and **PostgreSQL**. The system automates belt assignment based on real-time flight updates, delays, and maintenance events.
 
+[![Java](https://img.shields.io/badge/Java-21-orange.svg)](https://openjdk.org/projects/jdk/21/)
+[![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.4.2-brightgreen.svg)](https://spring.io/projects/spring-boot)
+[![Apache Kafka](https://img.shields.io/badge/Apache%20Kafka-3.5+-red.svg)](https://kafka.apache.org/)
+[![Docker](https://img.shields.io/badge/Docker-24.0+-blue.svg)](https://www.docker.com/)
+
 ---
 
 ## ✈️ Project Overview
