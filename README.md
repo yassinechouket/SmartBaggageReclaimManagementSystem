@@ -59,23 +59,6 @@ Airports need to manage complex baggage routing in real time. This system ensure
 
 ```mermaid
 sequenceDiagram
-    participant FlightController
-    participant KafkaProducer
-    participant KafkaConsumer
-    participant BeltAssignmentService
-    participant BaggageBelt
-
-    FlightController->>KafkaProducer: Publish flight update
-    KafkaProducer-->>KafkaTopic: Send FlightUpdateMessage
-    KafkaConsumer-->>BeltAssignmentService: On ARRIVAL -> assignBeltToFlight()
-    KafkaConsumer-->>BeltAssignmentService: On DELAY -> reassignBeltDueToDelay()
-    BeltAssignmentService-->>BaggageBelt: Update status
-
-
-
-
-
-sequenceDiagram
     autonumber
     participant 🧑‍✈️ FlightController as <b>FlightController</b><br><img src="https://img.icons8.com/fluency/48/spring-logo.png" width="20"/> Spring Boot
     participant 📤 KafkaProducer as <b>KafkaProducer</b><br><img src="https://img.icons8.com/ios-filled/50/kafka.png" width="20"/> Kafka
@@ -88,4 +71,10 @@ sequenceDiagram
     📨 KafkaConsumer-->>🛠️ BeltAssignmentService: On ARRIVAL → assignBeltToFlight()
     📨 KafkaConsumer-->>🛠️ BeltAssignmentService: On DELAY → reassignBeltDueToDelay()
     🛠️ BeltAssignmentService-->>🛄 BaggageBelt: Update belt status
+
+
+
+
+
+
 
