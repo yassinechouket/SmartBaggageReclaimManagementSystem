@@ -29,7 +29,7 @@ Airports need to manage complex baggage routing in real time. This system ensure
 
 ## 🧠 Core Features
 
-### ✅ Flight Module
+###  Flight Module
 - Track flights and status (`SCHEDULED`, `LANDED`, `DELAYED`, `CANCELLED`)
 - Kafka producer publishes updates like:
   - Arrival
@@ -37,13 +37,13 @@ Airports need to manage complex baggage routing in real time. This system ensure
   - Gate change
   - Cancellation
 
-### ✅ Baggage Belt Module
+###  Baggage Belt Module
 - Assign best-suited belt for flights (based on capacity, distance, availability)
 - Automatically reassign belts on delays or maintenance
 - Predict upcoming availability
 - Mark belts as **MAINTENANCE**, notify via Kafka
 
-### ✅ Kafka Events
+###  Kafka Events
 - `flight-updates` topic for flight events
 - `belt-maintenance` topic for belt status
 - Kafka consumers dynamically react to events and trigger logic (e.g., assign or reassign belts)
